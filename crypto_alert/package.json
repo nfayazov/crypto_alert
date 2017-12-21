@@ -1,0 +1,17 @@
+{
+  "name": "crypto_alert",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "path": "^0.12.7",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17"
+  },
+  "scripts": {
+    "start": "nodemon server.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
