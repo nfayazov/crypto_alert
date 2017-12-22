@@ -1,0 +1,19 @@
+{
+  "name": "crypto_alert",
+  "version": "1.0.0",
+  "description": "Tinkering with APIs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nfayazov/crypto_alert.git"
+  },
+  "author": "Nadir Fayazov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nfayazov/crypto_alert/issues"
+  },
+  "homepage": "https://github.com/nfayazov/crypto_alert#readme"
+}
