@@ -6,3 +6,5 @@ Packages used:
   * [cron](https://www.npmjs.com/package/cron)
   * [axios](https://www.npmjs.com/package/axios)
   * [twilio](https://www.npmjs.com/package/twilio)
+
+MIT. Copyright (c) Nadir Fayazov.
