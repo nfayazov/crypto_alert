@@ -30,6 +30,10 @@ var textJob = new cron('00 /*3 * * * *', function () {
    })
 }, null, true, 'America/Los_Angeles');
 
+app.get('/', function(req, res) {
+   res.send("Nothing to see here");
+})
+
 const port = process.env.PORT || 8000;
 
 app.listen(port);
