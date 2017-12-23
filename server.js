@@ -24,7 +24,8 @@ var textJob = new cron('00 00 */6 * * *', function () {
          message += "ETH price fell by " + res.data[1]["percent_change_24h"] + "% in the last 24 hours\n";
       if (res.data[2]["percent_change_24h"] < -5)
          message += "BTH price fell by " + res.data[2]["percent_change_24h"] + "% in the last 24 hours\n";
-      sendMessage(message);
+      if (message != "") sendMessage(message);
+      else console.log("No messages sent");
    }).catch(err => {
          sendMessage(err.message);
    })
