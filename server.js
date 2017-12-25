@@ -18,21 +18,22 @@ function sendMessage(text) {
 var textJob = new cron('00 00 */6 * * *', function () {
    var message = ""
    axios.get('https://api.coinmarketcap.com/v1/ticker/').then(res => {
-      if (res.data[0]["percent_change_24h"] < 0)
+      if (res.data[0]["percent_change_24h"] < -5)
          message += "BTC price fell by " + res.data[0]["percent_change_24h"] + "% in the last 24 hours\n";
-      if (res.data[1]["percent_change_24h"] < 0)
+      if (res.data[1]["percent_change_24h"] < -5)
          message += "ETH price fell by " + res.data[1]["percent_change_24h"] + "% in the last 24 hours\n";
-      if (res.data[2]["percent_change_24h"] < 0)
+      if (res.data[2]["percent_change_24h"] < -5)
          message += "BTH price fell by " + res.data[2]["percent_change_24h"] + "% in the last 24 hours\n";
       if (message != "") sendMessage(message);
-      else console.log("Nothing to sendß");
+      else console.log("Nothing to send");
    }).catch(err => {
          sendMessage(err.message);
    })
 }, null, true, 'America/Los_Angeles');
 
 app.get('/', function(req, res) {
-   res.send("Nothing to see here");
+   var file = path.join(__dirname, "index.html");
+   res.sendFile(file);
 })
 
 const port = process.env.PORT || 8000;
