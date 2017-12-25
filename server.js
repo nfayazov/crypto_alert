@@ -15,17 +15,17 @@ function sendMessage(text) {
          });
 }
 
-var textJob = new cron('00 00 */6 * * *', function () {
+var textJob = new cron('00 */2 * * * *', function () {
    var message = ""
    axios.get('https://api.coinmarketcap.com/v1/ticker/').then(res => {
-      if (res.data[0]["percent_change_24h"] < -5)
+      if (res.data[0]["percent_change_24h"] < 0)
          message += "BTC price fell by " + res.data[0]["percent_change_24h"] + "% in the last 24 hours\n";
-      if (res.data[1]["percent_change_24h"] < -5)
+      if (res.data[1]["percent_change_24h"] < 0)
          message += "ETH price fell by " + res.data[1]["percent_change_24h"] + "% in the last 24 hours\n";
-      if (res.data[2]["percent_change_24h"] < -5)
+      if (res.data[2]["percent_change_24h"] < 0)
          message += "BTH price fell by " + res.data[2]["percent_change_24h"] + "% in the last 24 hours\n";
       if (message != "") sendMessage(message);
-      else console.log("No messages sent");
+      else console.log("Nothing to sendß");
    }).catch(err => {
          sendMessage(err.message);
    })
