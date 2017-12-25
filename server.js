@@ -31,9 +31,24 @@ var textJob = new cron('00 00 */6 * * *', function () {
    })
 }, null, true, 'America/Los_Angeles');
 
+function verifyPhoneNumber(num) {
+      axios.post('https://api.authy.com/protected/json/phones/verification/start', {
+            api_key: process.env.VERIFY_API_KEY,
+            via: 'sms',
+            phone_number: num,
+            country_code: '1'
+      }).then(res => {
+            console.log(res);
+      }).catch(err => {
+            console.log(err);
+      })
+}
+
 app.get('/', function(req, res) {
-   var file = path.join(__dirname, "index.html");
-   res.sendFile(file);
+   var file = path.join(__dirname, "public/index.html");
+   if (Object.keys(req.query).length == 0)
+      res.sendFile(file);
+   else verifyPhoneNumber(req.query.phone_number);
 })
 
 const port = process.env.PORT || 8000;
