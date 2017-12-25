@@ -15,7 +15,7 @@ function sendMessage(text) {
          });
 }
 
-var textJob = new cron('00 */2 * * * *', function () {
+var textJob = new cron('00 00 /*6 * * *', function () {
    var message = ""
    axios.get('https://api.coinmarketcap.com/v1/ticker/').then(res => {
       if (res.data[0]["percent_change_24h"] < 0)
